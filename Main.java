@@ -7,7 +7,6 @@ public class Main {
         String host = "jdbc:mysql://localhost:3306/" + "presupuestos";
         String user = "root";
         String pass = "^v^[SQL]7v7";
-        String bd = "presupuestos";
 
         System.out.println("Conectando ...");
         try {
