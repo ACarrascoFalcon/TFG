@@ -33,5 +33,10 @@ public class Main {
         while (SELECT.next()) {
             System.out.println(SELECT.getString("IDEMPRESA") + " | | " + SELECT.getString("NOMBRE"));
         }
+
+        bd.close();
+        SELECT.close();
+        statement.close();
+
     }
 }
