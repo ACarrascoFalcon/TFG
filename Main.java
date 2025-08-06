@@ -2,7 +2,7 @@ import java.sql.*;
 
 public class Main {
 
-    public static Connection ConectarBD() throws SQLException {
+    public static Connection ConectarBD(){
         Connection conexion;
         String host = "jdbc:mysql://localhost:3306/" + "presupuestos";
         String user = "root";
@@ -26,7 +26,7 @@ public class Main {
 
         Statement statement = bd.createStatement();
 
-        int INSERT = statement.executeUpdate("INSERT INTO EMPRESA (NOMBRE)  VALUES ('Alejandro')");
+        statement.executeUpdate("INSERT INTO EMPRESA (NOMBRE)  VALUES ('Alejandro')");
 
         ResultSet SELECT = statement.executeQuery("SELECT * FROM EMPRESA");
 
