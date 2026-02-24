@@ -1,0 +1,28 @@
+private async Task CargarUsuario()
+{
+    try
+    {
+        using (var client = new HttpClient())
+        {
+            var response = await client.GetAsync("http://localhost:8080/api/details");
+            response.EnsureSuccessStatusCode();
+
+            var json = await response.Content.ReadAsStringAsync();
+
+            Usuario usuario = JsonConvert.DeserializeObject<Usuario>(json);
+
+            nombre.Text = usuario.nombre;
+            apellido.Text = usuario.apellido;
+
+        }
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show(ex.Message);
+    }
+}
+
+private async void button1_Click(object sender, EventArgs e)
+{
+    await CargarUsuario();
+}
