@@ -30,8 +30,4 @@ public class UsuarioEntity implements Serializable {
     private String nombreUsuario;
     @Column(name = "password")
     private String password;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_departamento")
-    private DepartamentoEntity departamento;
 }

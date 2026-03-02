@@ -36,5 +36,16 @@ public class PresupuestoEntity implements Serializable {
     @Column(name = "habitual")
     private Boolean habitual;
 
-    // Faltan las relaciones
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_contacto")
+    private ContactoEntity contacto;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_pago")
+    private PagosEntity pago;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
+    private UsuarioEntity usuario;
+
+
 }
