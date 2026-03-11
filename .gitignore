@@ -1,0 +1,42 @@
+# ========================
+# Maven / Java (backend)
+# ========================
+backend/target/
+*.class
+*.jar
+*.war
+
+# ========================
+# Visual Studio / .NET
+# ========================
+frontend/**/bin/
+frontend/**/obj/
+frontend/**/*.user
+frontend/**/*.suo
+frontend/packages/
+frontend/**/*.cache
+frontend/**/*.FilesWrittenAbsolutely.txt
+.vs/
+
+# ========================
+# IntelliJ IDEA
+# ========================
+.idea/
+*.iml
+
+# ========================
+# VS Code
+# ========================
+.vscode/
+
+# ========================
+# Variables de entorno
+# ========================
+.env
+**/application-local.properties
+
+# ========================
+# OS
+# ========================
+.DS_Store
+Thumbs.db
