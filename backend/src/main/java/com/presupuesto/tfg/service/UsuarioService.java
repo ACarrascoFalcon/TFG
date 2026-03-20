@@ -15,8 +15,6 @@ public class UsuarioService {
 
     @Transactional(readOnly = true)
     public UsuarioEntity findUsuarioByNombreUsuarioAndPassword(String nombreUsuario, String password) {
-
         return usuarioDao.findUsuarioByNombreUsuarioAndPassword(nombreUsuario, password);
-
     }
 }
