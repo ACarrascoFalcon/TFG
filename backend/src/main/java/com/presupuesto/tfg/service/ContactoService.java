@@ -15,6 +15,12 @@ public class ContactoService {
     @Autowired
     private ContactoDao contactoDao;
 
+    /**
+     * Busca los {@link ContactoEntity} de {@link EmpresaEntity} y los mete en una lista
+     *
+     * @param empresa de la que se buscan los contactos
+     * @return lista de {@link ContactoEntity}
+     */
     @Transactional(readOnly = true)
     public List<ContactoEntity> findContactoByEmpresa (EmpresaEntity empresa){
         return contactoDao.findContactoByEmpresa(empresa);

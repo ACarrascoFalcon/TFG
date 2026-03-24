@@ -14,6 +14,11 @@ public class EmpresaService {
     @Autowired
     private EmpresaDao empresaDao;
 
+    /**
+     * Busca las {@link EmpresaEntity} y las mete en una lista
+     *
+     * @return lista con las {@link EmpresaEntity}
+     */
     @Transactional(readOnly = true)
     public List<EmpresaEntity> findAll(){
         return empresaDao.findAll();

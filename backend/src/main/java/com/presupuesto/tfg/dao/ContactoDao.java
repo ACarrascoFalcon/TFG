@@ -10,5 +10,11 @@ import java.util.List;
 @Repository
 public interface ContactoDao extends JpaRepository<ContactoEntity, Integer> {
 
+    /**
+     * Busca los {@link ContactoEntity} que tiene {@link EmpresaEntity}
+     *
+     * @param empresa de la que se buscan los contactos
+     * @return lista de {@link ContactoEntity}
+     */
     List<ContactoEntity> findContactoByEmpresa(EmpresaEntity empresa);
 }
