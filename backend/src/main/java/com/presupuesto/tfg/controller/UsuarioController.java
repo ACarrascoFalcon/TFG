@@ -13,9 +13,15 @@ public class UsuarioController {
     @Autowired
     private UsuarioService service;
 
+    /**
+     * Recibe las credenciales del {@link UsuarioEntity}
+     *
+     * @param nombreUsuario nombre del {@link UsuarioEntity}
+     * @param password contraseña del {@link UsuarioEntity}
+     * @return {@link UsuarioEntity}
+     */
     @PostMapping("/login")
-    public UsuarioEntity login(@RequestBody UsuarioEntity usuario) {
-
-        return service.findUsuarioByNombreUsuarioAndPassword(usuario.getNombreUsuario(), usuario.getPassword());
+    public UsuarioEntity login(@RequestBody String nombreUsuario, @RequestBody String password) {
+        return service.findUsuarioByNombreUsuarioAndPassword(nombreUsuario, password);
     }
 }

@@ -8,5 +8,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UsuarioDao extends JpaRepository<UsuarioEntity, Integer> {
 
+    /**
+     * Busca un {@link UsuarioEntity} por nombre de usuario y contraseña
+     *
+     * @param nombreUsuario nombre de usuario de {@link UsuarioEntity}
+     * @param password contraseña de {@link UsuarioEntity}
+     * @return un {@link UsuarioEntity}
+     */
     UsuarioEntity findUsuarioByNombreUsuarioAndPassword(String nombreUsuario, String password);
 }
