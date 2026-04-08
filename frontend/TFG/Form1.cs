@@ -13,43 +13,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TFG
 {
-    public partial class Form1 : Form
+    public partial class FrmInicioSesion : Form
     {
-        public Form1()
+        public FrmInicioSesion()
         {
             InitializeComponent();
         }
-
-        private async Task CargarUsuario()
-        {
-            try
-            {
-                using (var client = new HttpClient())
-                {
-                    var response = await client.GetAsync("http://localhost:8080/api/details");
-                    response.EnsureSuccessStatusCode();
-
-                    var json = await response.Content.ReadAsStringAsync();
-
-                    Usuario usuario = JsonConvert.DeserializeObject<Usuario>(json);
-
-                    nombre.Text = usuario.nombre;
-                    apellido.Text = usuario.primerApellido;
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private async void button1_Click(object sender, EventArgs e)
-        {
-            await CargarUsuario();
-        }
-
-        private async void button2_Click(object sender, EventArgs e)
+        private async void btnAceptar_Click(object sender, EventArgs e)
         { 
             await BuscarUsuario();
         }
@@ -62,8 +32,8 @@ namespace TFG
                     // Crear objeto con los datos del usuario
                     var input = new Usuario();
 
-                    input.nombreUsuario = nombre.Text;
-                    input.password = apellido.Text;
+                    input.nombreUsuario = txtUsuario.Text;
+                    input.password = txtContrasea.Text;
 
                     // Serializar a JSON
                     var jsonInput = JsonConvert.SerializeObject(input);
@@ -77,11 +47,7 @@ namespace TFG
                     var jsonResponse = await response.Content.ReadAsStringAsync();
                     var usuarioEncontrado = JsonConvert.DeserializeObject<Usuario>(jsonResponse);
 
-                    if (usuarioEncontrado != null)
-                    {
-                        id.Text = usuarioEncontrado.id.ToString();
-                    }
-                    else
+                    if (usuarioEncontrado == null)
                     {
                         MessageBox.Show("El servidor devolvió un objeto vacío.");
                     }
