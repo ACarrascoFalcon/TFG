@@ -9,9 +9,6 @@ namespace TFG
 {
     public class Usuario
     {
-        // C# usa PascalCase para las propiedades, pero para que Newtonsoft.Json
-        // las asocie automáticamente con el JSON de Java (que usa camelCase),
-        // lo mejor es definirlas así:
 
         public int id { get; set; }
         public string nombre { get; set; }
@@ -20,9 +17,6 @@ namespace TFG
         public string nombreUsuario { get; set; }
         public string password { get; set; }
 
-
-
-        // Constructor vacío (necesario para la deserialización)
         public Usuario() { }
     }
 }

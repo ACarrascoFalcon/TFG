@@ -30,4 +30,12 @@ public class UsuarioEntity implements Serializable {
     private String nombreUsuario;
     @Column(name = "password")
     private String password;
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }

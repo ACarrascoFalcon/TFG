@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
@@ -47,7 +48,12 @@ namespace TFG
                     var jsonResponse = await response.Content.ReadAsStringAsync();
                     var usuarioEncontrado = JsonConvert.DeserializeObject<Usuario>(jsonResponse);
 
-                    if (usuarioEncontrado == null)
+                    if (usuarioEncontrado != null)
+                    {
+                        FrmPrincipal frmPrincipal = new FrmPrincipal();
+                        frmPrincipal.Show();
+                        this.Hide();
+                    }else
                     {
                         MessageBox.Show("El servidor devolvió un objeto vacío.");
                     }
@@ -57,6 +63,11 @@ namespace TFG
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

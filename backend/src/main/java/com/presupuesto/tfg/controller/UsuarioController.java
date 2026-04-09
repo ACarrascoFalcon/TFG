@@ -16,12 +16,11 @@ public class UsuarioController {
     /**
      * Recibe las credenciales del {@link UsuarioEntity}
      *
-     * @param nombreUsuario nombre del {@link UsuarioEntity}
-     * @param password contraseña del {@link UsuarioEntity}
+     * @param usuarioEntity 
      * @return {@link UsuarioEntity}
      */
     @PostMapping("/login")
-    public UsuarioEntity login(@RequestBody String nombreUsuario, @RequestBody String password) {
-        return service.findUsuarioByNombreUsuarioAndPassword(nombreUsuario, password);
+    public UsuarioEntity login(@RequestBody UsuarioEntity usuarioEntity) {
+        return service.findUsuarioByNombreUsuarioAndPassword(usuarioEntity.getNombreUsuario(), usuarioEntity.getPassword());
     }
 }
