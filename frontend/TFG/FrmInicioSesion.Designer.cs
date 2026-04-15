@@ -105,6 +105,7 @@
             this.Controls.Add(this.txtUsuario);
             this.MaximizeBox = false;
             this.Name = "FrmInicioSesion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio de Sesión";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -16,5 +16,21 @@ namespace TFG
         {
             InitializeComponent();
         }
+        private void MostrarControlEnPanel(UserControl controlHijo)
+        {
+            panelContenedor.Controls.Clear();
+
+            controlHijo.Dock = DockStyle.Fill;
+
+            panelContenedor.Controls.Add(controlHijo);
+
+            controlHijo.BringToFront();
+        }
+
+        private void añadirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AgregarPreEmpr agregar = new AgregarPreEmpr();
+            MostrarControlEnPanel(agregar);
+        }
     }
 }
